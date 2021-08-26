@@ -1,3 +1,5 @@
+include <./desk.scad>;
+
 room_width = 81;
 room_depth = 117;
 room_height = 91.25;
@@ -41,7 +43,7 @@ module ledge(length) {
       ]);
     cube([
       length,
-      4.75,
+      3.75,
       34
     ]);
   }
@@ -88,3 +90,6 @@ module office() {
 }
 
 office();
+translate([12, wall_thickness + room_depth - 5, wall_thickness])
+  rotate([0, 0, -90])
+  desk();
