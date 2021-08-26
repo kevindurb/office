@@ -47,6 +47,13 @@ module ledge(length) {
   }
 }
 
+module soffit() {
+  cube([
+    15,
+    room_depth,
+    8
+  ]);
+}
 
 module office() {
   difference() {
@@ -58,6 +65,7 @@ module office() {
     ])
       door();
   }
+
   union() {
     rotate([0, 0, 180])
       translate([
@@ -74,6 +82,9 @@ module office() {
       ])
       ledge(room_depth);
   }
+
+  translate([0, wall_thickness, room_height - 8 + wall_thickness])
+  soffit();
 }
 
 office();
